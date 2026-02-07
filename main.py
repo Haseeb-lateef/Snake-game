@@ -44,16 +44,15 @@ while game_continue:
 
 
     if abs(snake.head.xcor()) > 290 or abs(snake.head.ycor()) >290:
-        scoreboard.end_game()
-        game_continue = False
+        scoreboard.reset_game()
+        snake.reset_snek()
 
 
     for seg in snake.snake_segments[1:]:
 
         if snake.head.distance(seg) < 10:
-            scoreboard.end_game()
-            game_continue = False
-
+            scoreboard.reset_game()
+            snake.reset_snek()
 
 
 screen.exitonclick()

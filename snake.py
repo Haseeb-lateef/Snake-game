@@ -114,9 +114,20 @@ class Snake:
 
             self.snake_segments[0].setheading(DOWN)
 
-
-
         return None
+
+
+    def reset_snek(self):
+        # move old segments off-screen (so they disappear)
+        for seg in self.snake_segments:
+            seg.goto(1000, 1000)
+
+        self.snake_segments.clear()
+        self.size = 3  # or whatever starting size you want
+
+        # rebuild snake
+        self.snake_segments = self.make_snake(self.size)
+        self.head = self.snake_segments[0]
 
 
 
